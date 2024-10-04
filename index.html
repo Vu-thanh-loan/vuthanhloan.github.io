@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input, button, select {
+            padding: 5px;
+            margin: 2px;
+            width: 100px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Máy Tính Đơn Giản</h1>
+     <input type="number" id="num1">
+    <select size="1" id="Phep toan">
+    <option value ="+">+</option>
+    <option value ="-">-</option>
+    <option value ="*">*</option>
+    <option value =":">:</option>
+    <input type="number" id="num2">
+    <button onclick="calculate()">=</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operator = document.getElementById('PhepToan').value;
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num2 !== 0 ? num1 / num2 : 'Không thể chia cho 0';
+                    break;
+                default:
+                    result = 'Phép toán không hợp lệ';
+            }
+
+            document.getElementById('result').innerText = 'Kết quả: ' + result;
+        }
+    </script>
+</body>
+</html>
+
